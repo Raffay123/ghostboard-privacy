@@ -1,0 +1,328 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+<meta charset="UTF-8">  
+<meta name="viewport" content="width=device-width, initial-scale=1.0">  
+<title>GhostBoard Privacy Policy</title>  
+<meta name="description" content="Privacy policy for the GhostBoard Chrome extension — a practice analysis board overlay for Chess.com.">  
+<style>  
+  * { margin: 0; padding: 0; box-sizing: border-box; }  
+  body {  
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;  
+    line-height: 1.65;  
+    color: #2b2b2b;  
+    background: #fafafa;  
+    padding: 40px 20px;  
+  }  
+  .container {  
+    max-width: 780px;  
+    margin: 0 auto;  
+    background: #fff;  
+    padding: 48px 56px;  
+    border-radius: 8px;  
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);  
+  }  
+  h1 { font-size: 28px; margin-bottom: 6px; color: #1a1a1a; letter-spacing: -0.3px; }  
+  h2 { font-size: 18px; margin-top: 32px; margin-bottom: 10px; color: #1a1a1a; }  
+  h3 { font-size: 15px; margin-top: 16px; margin-bottom: 6px; color: #333; }  
+  .subtitle { color: #888; font-size: 14px; margin-bottom: 28px; }  
+  p { margin-bottom: 12px; }  
+  ul { margin: 8px 0 14px 22px; }  
+  li { margin-bottom: 6px; }  
+  a { color: #81B64C; text-decoration: none; }  
+  a:hover { text-decoration: underline; }  
+  code {  
+    background: #f0f0f0;  
+    padding: 2px 6px;  
+    border-radius: 3px;  
+    font-size: 13px;  
+    font-family: "SF Mono", Monaco, Consolas, monospace;  
+  }  
+  strong { color: #1a1a1a; }  
+  .section-intro { color: #555; font-style: italic; margin-bottom: 12px; font-size: 14px; }  
+  .footer {  
+    margin-top: 40px;  
+    padding-top: 20px;  
+    border-top: 1px solid #eee;  
+    color: #888;  
+    font-size: 13px;  
+  }  
+  .disclaimer {  
+    margin-top: 14px;  
+    padding: 12px 16px;  
+    background: #f6f6f6;  
+    border-left: 3px solid #81B64C;  
+    font-size: 13px;  
+    color: #555;  
+    border-radius: 4px;  
+  }  
+  @media (max-width: 600px) {  
+    .container { padding: 28px 20px; }  
+    h1 { font-size: 24px; }  
+  }  
+</style>  
+</head>  
+<body>  
+<div class="container">  
+  
+  <h1>GhostBoard for Chess.com — Privacy Policy</h1>  
+  <p class="subtitle">Last updated: April 22, 2026</p>  
+  
+  <h2>1. Introduction</h2>  
+  <p>  
+    GhostBoard for Chess.com ("GhostBoard", "the Extension", "we", "our") is a  
+    browser extension that provides a practice analysis board overlay on Chess.com.  
+    This privacy policy explains what data the Extension accesses, collects, stores,  
+    and transmits, and how that data is handled.  
+  </p>  
+  <p>  
+    We are committed to transparency. GhostBoard is designed to function with  
+    minimal data collection. We do not run analytics, do not track browsing  
+    behavior, and do not sell or share any user data with third parties for  
+    advertising or profiling purposes.  
+  </p>  
+  
+  <h2>2. Data We Access But Do Not Collect or Transmit</h2>  
+  
+  <h3>a) Chess.com Page Content</h3>  
+  <p>  
+    The Extension reads the chess board position and move list from the  
+    Chess.com page DOM (Document Object Model) to synchronize pieces on the  
+    GhostBoard overlay. This data is processed entirely within your browser.  
+    It is never transmitted to any server, stored persistently, or shared  
+    with any third party.  
+  </p>  
+  
+  <h3>b) Page URL</h3>  
+  <p>  
+    The Extension checks the current Chess.com page URL to determine whether  
+    GhostBoard should activate (e.g., <code>/play/computer</code>,  
+    <code>/analysis</code>, <code>/puzzles</code>). This check happens locally  
+    in your browser. URLs are never transmitted, logged, or stored.  
+  </p>  
+  
+  <h2>3. Data We Store Locally</h2>  
+  <p>  
+    The Extension uses Chrome's built-in storage APIs  
+    (<code>chrome.storage.sync</code> and <code>chrome.storage.local</code>)  
+    to save the following:  
+  </p>  
+  
+  <h3>a) Theme Preferences</h3>  
+  <p>  
+    Your selected board color scheme and piece style. Stored so your  
+    preferences persist across sessions.  
+  </p>  
+  
+  <h3>b) Pro License Status</h3>  
+  <p>  
+    A boolean flag indicating whether a Pro license has been activated.  
+  </p>  
+  
+  <h3>c) License Key (Pro users only)</h3>  
+  <p>  
+    If you activate a Pro license, your license key is stored in Chrome's  
+    synced storage (<code>chrome.storage.sync</code>). This enables your Pro  
+    activation to carry across Chrome installations where you are signed into  
+    the same Google account. The license key is never transmitted to any  
+    party other than Gumroad for verification (see Section 4).  
+    Pro licenses permit up to 2 device activations. Gumroad tracks the  
+    activation count server-side; we do not store this information ourselves.  
+  </p>  
+  
+  <h3>d) Installation Timestamp</h3>  
+  <p>  
+    A timestamp recording when the Extension was first installed, used solely  
+    to calculate free trial eligibility. This timestamp is stored in both  
+    <code>chrome.storage.sync</code> and <code>chrome.storage.local</code> as  
+    a redundancy measure. It contains no personally identifiable information.  
+  </p>  
+  
+  <h3>e) Trial Integrity Seal</h3>  
+  <p>  
+    A locally computed hash of the installation timestamp, used to verify  
+    that the trial period has not been tampered with. This is computed  
+    entirely within your browser and is never transmitted.  
+  </p>  
+  
+  <p>  
+    None of the above data contains personally identifiable information (PII)  
+    except the license key, which is a Gumroad-issued product key and does not  
+    inherently contain your name, email, or payment details.  
+  </p>  
+  
+  <h2>4. Data We Transmit</h2>  
+  
+  <h3>a) License Key Verification</h3>  
+  <p>  
+    When you activate a Pro license, the Extension sends your license key to  
+    the Gumroad API (<code>https://api.gumroad.com</code>) to verify its  
+    validity. This is the only external network request the Extension makes.  
+  </p>  
+  <p><strong>Data sent:</strong></p>  
+  <ul>  
+    <li>Your license key</li>  
+    <li>The GhostBoard product identifier</li>  
+  </ul>  
+  <p><strong>Data received:</strong></p>  
+  <ul>  
+    <li>Whether the key is valid</li>  
+    <li>Whether the associated purchase has been refunded, disputed, or charged back</li>  
+  </ul>  
+  <p>  
+    This request is made only when you explicitly click "Activate" on the  
+    settings page. It is never made automatically during browsing.  
+  </p>  
+  
+  <h3>b) License Revalidation</h3>  
+  <p>  
+    To detect refunded or revoked licenses, the Extension periodically  
+    (at most once every 24 hours) re-sends your license key to the Gumroad API  
+    for verification. This occurs in the background and uses the same minimal  
+    data (license key + product ID) as initial activation. If you never  
+    activate a Pro license, no external requests are ever made.  
+  </p>  
+  
+  <h2>5. Data We Do Not Collect</h2>  
+  <p>To be explicit, GhostBoard does NOT collect, store, or transmit:</p>  
+  <ul>  
+    <li>Your name, email address, or any account information</li>  
+    <li>Your Chess.com username or account details</li>  
+    <li>Your browsing history or activity on any website</li>  
+    <li>Your chess games, ratings, or performance data</li>  
+    <li>Cookies or tracking identifiers</li>  
+    <li>Device fingerprints or hardware information</li>  
+    <li>Location data</li>  
+    <li>Any data from websites other than Chess.com</li>  
+  </ul>  
+  
+  <h2>6. Chrome Permissions Explained</h2>  
+  
+  <h3>a) <code>storage</code></h3>  
+  <p>  
+    Used to save your theme preferences, license status, and installation  
+    timestamp. No data leaves your browser through this permission.  
+  </p>  
+  
+  <h3>b) <code>activeTab</code></h3>  
+  <p>  
+    Used to communicate between the popup interface and the Chess.com tab  
+    when you click the GhostBoard icon. This provides temporary access only  
+    to the tab you are actively viewing.  
+  </p>  
+  
+  <h3>c) Host permission: <code>*://*.chess.com/*</code></h3>  
+  <p>  
+    Required so the Extension's content script can run on Chess.com pages  
+    to read the board position and render the GhostBoard overlay.  
+  </p>  
+  
+  <h3>d) Host permission: <code>https://api.gumroad.com/*</code></h3>  
+  <p>  
+    Required to verify Pro license keys against Gumroad's API when you  
+    activate a license.  
+  </p>  
+  
+  <h2>7. Third-Party Services</h2>  
+  <p>The only third-party service the Extension communicates with is:</p>  
+  <ul>  
+    <li>  
+      <strong>Gumroad</strong> (<a href="https://gumroad.com" target="_blank">gumroad.com</a>)  
+      <ul>  
+        <li>Purpose: License key verification for Pro activation</li>  
+        <li>Data shared: License key and product identifier</li>  
+        <li>When: Only when you manually activate a Pro license, and for periodic revalidation (at most once per 24 hours)</li>  
+        <li>Gumroad's privacy policy: <a href="https://gumroad.com/privacy" target="_blank">gumroad.com/privacy</a></li>  
+      </ul>  
+    </li>  
+  </ul>  
+  <p>  
+    The Extension includes the following open-source libraries, which run  
+    entirely within your browser and make no external connections:  
+  </p>  
+  <ul>  
+    <li>jQuery (MIT License)</li>  
+    <li>chess.js (BSD License)</li>  
+    <li>chessboard.js (MIT License)</li>  
+  </ul>  
+  
+  <h2>8. Data Retention and Deletion</h2>  
+  <p>  
+    All Extension data is stored in your Chrome browser's local and synced  
+    storage. You can delete all stored data at any time by:  
+  </p>  
+  <ul>  
+    <li>Uninstalling the Extension (removes all local data automatically)</li>  
+    <li>Using Chrome's "Clear browsing data" feature for extension data</li>  
+    <li>Manually clearing extension storage via Chrome Developer Tools</li>  
+  </ul>  
+  <p>  
+    Upon uninstallation, Chrome automatically removes all data stored by the  
+    Extension in both <code>chrome.storage.local</code> and  
+    <code>chrome.storage.sync</code>.  
+  </p>  
+  <p>  
+    We do not maintain any server-side database of user data. Once you remove  
+    the Extension, no trace of your data remains on our end because no data  
+    was ever sent to us.  
+  </p>  
+  
+  <h2>9. Data Security</h2>  
+  <p>  
+    All data stored by the Extension resides within Chrome's built-in storage  
+    system, which is sandboxed and inaccessible to other extensions and  
+    websites. License key verification is transmitted over HTTPS (encrypted  
+    in transit) to Gumroad's API.  
+  </p>  
+  
+  <h2>10. Children's Privacy</h2>  
+  <p>  
+    GhostBoard does not knowingly collect any personal information from  
+    children under the age of 13 (or the applicable age in your jurisdiction).  
+    The Extension does not collect personal information from any user.  
+  </p>  
+  
+  <h2>11. Changes to This Policy</h2>  
+  <p>  
+    We may update this privacy policy to reflect changes in the Extension's  
+    functionality or to comply with legal requirements. When we make material  
+    changes, we will update the "Last updated" date at the top of this policy.  
+    Continued use of the Extension after changes constitutes acceptance of  
+    the updated policy.  
+  </p>  
+  
+  <h2>12. Your Rights</h2>  
+  <p>Depending on your jurisdiction, you may have the right to:</p>  
+  <ul>  
+    <li>Access the data stored by the Extension (visible in Chrome's extension storage via Developer Tools)</li>  
+    <li>Delete all stored data (by uninstalling the Extension)</li>  
+    <li>Opt out of license key syncing (by deactivating your Pro license)</li>  
+  </ul>  
+  <p>  
+    Since we do not operate any servers that store your data, data access  
+    and deletion are fully within your control through your browser.  
+  </p>  
+  
+  <h2>13. Contact</h2>  
+  <p>  
+    If you have questions about this privacy policy or the Extension's  
+    data practices, please contact:  
+  </p>  
+  <ul>  
+    <li>Email: <a href="mailto:ghostboard.support@gmail.com">ghostboard.support@gmail.com</a></li>  
+    <li>Gumroad: <a href="https://ghostboard.gumroad.com/l/ghostboard" target="_blank">ghostboard.gumroad.com/l/ghostboard</a></li>  
+  </ul>  
+  
+  <div class="disclaimer">  
+    GhostBoard for Chess.com is not affiliated with, endorsed by, or  
+    associated with Chess.com or Play Magnus Group.  
+  </div>  
+  
+  <div class="footer">  
+    &copy; <span id="year"></span> GhostBoard. This privacy policy applies to  
+    the GhostBoard Chrome extension.  
+  </div>  
+</div>  
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>  
+</body>  
+</html>
