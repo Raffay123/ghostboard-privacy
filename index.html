@@ -66,7 +66,7 @@
 <div class="container">  
   
   <h1>GhostBoard — Privacy Policy</h1>
-  <p class="subtitle">Last updated: April 22, 2026</p>  
+  <p class="subtitle">Last updated: April 23, 2026</p>  
   
   <h2>1. Introduction</h2>  
   <p>  
@@ -112,14 +112,22 @@
   <p>  
     Your selected board color scheme and piece style. Stored so your  
     preferences persist across sessions.  
-  </p>  
+  </p>
+
+  <h3>b) Overlay Window Position and Size</h3>  
+  <p>  
+   If you move or resize the GhostBoard overlay, its last position and width
+   are saved locally (via chrome.storage.local) so the overlay reopens in the
+   same place on your next visit. This setting contains no personally
+   identifiable information and never leaves your browser.  
+  </p> 
   
-  <h3>b) Pro License Status</h3>  
+  <h3>c) Pro License Status</h3>  
   <p>  
     A boolean flag indicating whether a Pro license has been activated.  
   </p>  
   
-  <h3>c) License Key (Pro users only)</h3>  
+  <h3>d) License Key (Pro users only)</h3>  
   <p>  
     If you activate a Pro license, your license key is stored in Chrome's  
     synced storage (<code>chrome.storage.sync</code>). This enables your Pro  
@@ -130,15 +138,15 @@
     activation count server-side; we do not store this information ourselves.  
   </p>  
   
-  <h3>d) Installation Timestamp</h3>  
+  <h3>e) Installation Timestamp</h3>  
   <p>  
-    A timestamp recording when the Extension was first installed, used solely  
-    to calculate free trial eligibility. This timestamp is stored in both  
-    <code>chrome.storage.sync</code> and <code>chrome.storage.local</code> as  
-    a redundancy measure. It contains no personally identifiable information.  
+   A timestamp recording when the Extension was first installed, used solely
+   to calculate free trial eligibility (a 3-day trial of Pro features). This
+   timestamp is stored in both chrome.storage.sync and chrome.storage.local
+   as a redundancy measure. It contains no personally identifiable information.  
   </p>  
   
-  <h3>e) Trial Integrity Seal</h3>  
+  <h3>f) Trial Integrity Seal</h3>  
   <p>  
     A locally computed hash of the installation timestamp, used to verify  
     that the trial period has not been tampered with. This is computed  
@@ -252,7 +260,8 @@
     storage. You can delete all stored data at any time by:  
   </p>  
   <ul>  
-    <li>Uninstalling the Extension (removes all local data automatically)</li>  
+    <li>Uninstalling the Extension (Chrome removes all extension storage; synced data
+     may take a short time to clear across all signed-in devices)</li>  
     <li>Using Chrome's "Clear browsing data" feature for extension data</li>  
     <li>Manually clearing extension storage via Chrome Developer Tools</li>  
   </ul>  
@@ -296,7 +305,8 @@
   <ul>  
     <li>Access the data stored by the Extension (visible in Chrome's extension storage via Developer Tools)</li>  
     <li>Delete all stored data (by uninstalling the Extension)</li>  
-    <li>Remove your license key from Chrome sync storage (by deactivating your Pro license on the settings page)</li>  
+    <li>Remove your license key from Chrome sync storage (by deactivating your Pro license on the settings page)</li>
+    <li>Clear locally-saved overlay position by uninstalling the Extension or using Chrome's extension storage tools</li>
   </ul>
   <p>  
     Since we do not operate any servers that store your data, data access  
