@@ -133,9 +133,13 @@
     synced storage (<code>chrome.storage.sync</code>). This enables your Pro  
     activation to carry across Chrome installations where you are signed into  
     the same Google account. The license key is never transmitted to any  
-    party other than Gumroad for verification (see Section 4).  
-    Pro licenses permit up to 2 device activations. Gumroad tracks the  
-    activation count server-side; we do not store this information ourselves.  
+    party other than Gumroad for verification (see Section 4).  Pro licenses
+    permit up to 3 device activations. Gumroad tracks the activation count
+    server-side; we do not store this information ourselves. Deactivating Pro
+    on a device through the Extension's settings page clears the license key from
+    your local browser storage; it does not send any data to Gumroad. To reset
+    your device count on Gumroad's side (for example, after switching computers),
+    you can contact us at ghostboard.support@gmail.com — see Section 4(c).  
   </p>  
   
   <h3>e) Installation Timestamp</h3>  
@@ -163,9 +167,12 @@
   
   <h3>a) License Key Verification</h3>  
   <p>  
-    When you activate a Pro license, the Extension sends your license key to  
-    the Gumroad API (<code>https://api.gumroad.com</code>) to verify its  
-    validity. This is the only external network request the Extension makes.  
+    When you activate a Pro license, the Extension sends your license key to the
+    Gumroad API (https://api.gumroad.com) to verify its validity and claim a device slot.
+    To prevent unnecessary increments to your activation count from failed attempts,
+    the Extension performs this in two steps: first a non-incrementing check to confirm
+    the key is valid and that you have an available device slot, then (only if you do) a
+    second call that claims the slot. Both calls send the same minimal data.  
   </p>  
   <p><strong>Data sent:</strong></p>  
   <ul>  
@@ -174,9 +181,11 @@
   </ul>  
   <p><strong>Data received:</strong></p>  
   <ul>  
-    <li>Whether the key is valid</li>  
-    <li>Whether the associated purchase has been refunded, disputed, or charged back</li>  
-  </ul>  
+    <li>Whether the key is valid</li>
+    <li>Your current activation count</li>  
+    <li>Whether the associated purchase has been refunded, disputed, or charged back</li>
+    <li>Gumroad-bound API requests are the only external network requests the Extension makes.</li>
+  </ul>
   <p>  
     This specific request is made only when you explicitly click "Activate" on the settings page.
     See Section 4(b) regarding automatic revalidation for already-activated licenses.
@@ -189,6 +198,21 @@
     for verification. This occurs in the background and uses the same minimal  
     data (license key + product ID) as initial activation. If you never  
     activate a Pro license, no external requests are ever made.  
+  </p>
+
+ <h3>c) Manual License Resets (Support Workflow)</h3>  
+  <p>  
+    If you contact us at ghostboard.support@gmail.com requesting a device reset,
+    we will use your license key — provided by you in your email to us — to
+    call Gumroad's licensing API and reduce your activation count or re-enable a
+    disabled key on our end. We process this request only at your explicit request
+    and only for the purpose you asked us to perform. We do not retain your license
+    key after the reset is complete beyond what is contained in the email thread itself,
+    which is stored in our email provider (Gmail) under their own privacy terms.
+   </p>
+  <p>
+    The Extension itself never calls these reset endpoints — only verification calls
+    (Sections 4(a) and 4(b)) are made from your browser.  
   </p>  
   
   <h2>5. Data We Do Not Collect</h2>  
@@ -239,7 +263,9 @@
       <ul>  
         <li>Purpose: License key verification for Pro activation</li>  
         <li>Data shared: License key and product identifier</li>  
-        <li>When: Only when you manually activate a Pro license, and for periodic revalidation (at most once per 24 hours)</li>  
+        <li>When: When you manually activate a Pro license (one verification call to confirm the key is valid, plus one to claim
+         a device slot if available), and for periodic revalidation while Pro is active (at most once per 24 hours).
+         No request is made when you deactivate Pro on a device.</li>  
         <li>Gumroad's privacy policy: <a href="https://gumroad.com/privacy" target="_blank">gumroad.com/privacy</a></li>  
       </ul>  
     </li>  
